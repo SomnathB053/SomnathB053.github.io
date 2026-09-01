@@ -8,8 +8,8 @@
 
 # Basic Site Settings
 locale                   : "en-US"
-site_theme               : "contrast" # The available themes options are "default", "air", "sunrise", "mint", "dirt" and "contrast"
-title                    : "Somnath's Page"
+site_theme               : "default" # The available themes options are "default", "air", "sunrise", "mint", "dirt" and "contrast"
+title                    : "Somnath's Site"
 title_separator          : "-"
 name                     : &name "Somnath Bose"
 description              : &description "Personal Website"   # Update this with a general description of your site, this is the default if not overridden by a page
