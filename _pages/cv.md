@@ -1,7 +1,7 @@
 ---
 layout: archive
 title: "CV"
-permalink: /cv/
+permalink: /cv-bkup/
 author_profile: true
 redirect_from:
   - /resume

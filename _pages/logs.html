@@ -1,0 +1,16 @@
+---
+layout: archive
+title: "Random developements to share"
+permalink: /logs/
+author_profile: true
+---
+
+{% include base_path %}
+
+{% assign sorted_logs = site.logs | sort: 'date' | reverse %}
+
+<div class="list__item">
+  {% for post in sorted_logs %}
+    {% include archive-single.html %}
+  {% endfor %}
+</div>

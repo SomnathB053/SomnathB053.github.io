@@ -37,3 +37,18 @@
     "layout/sidebar",
     "layout/json_cv"
 ;
+
+/* Adjust header overlay banner height and sizing */
+.page__hero--overlay {
+  min-height: 250px;   /* Default is usually ~300px-400px; adjust to your preferred height */
+  max-height: 300px;
+  background-size: cover;    /* Ensures full width scaling without stretching */
+  background-position: center; 
+}
+
+/* Adjust standard non-overlay hero images */
+.page__hero-image {
+  max-height: 250px;
+  width: 100%;
+  object-fit: cover;  /* Prevents image distortion */
+}
