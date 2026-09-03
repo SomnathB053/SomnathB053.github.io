@@ -97,10 +97,11 @@
       "level": "",
       "keywords": [
         "ROS2",
-        "ros2_control",
-        "crazyswarm2",
         "PyTorch",
-        "Flask"
+        "Flask",
+        "ros2_control",
+        "nav2",
+        "crazyswarm2",
       ]
     },
     {
@@ -116,7 +117,7 @@
       ]
     }
   ],
-  "languages": [],
+  "languages": ["English", "Bengali", "Hindi"],
   "interests": [],
   "references": [],
   "publications": [],

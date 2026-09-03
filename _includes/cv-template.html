@@ -1,11 +1,5 @@
 {% assign cv = site.data.cv %}
 
-<!-- Load Fonts & Icons -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..700;1,400..700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
 <style>
   html {
     scroll-behavior: smooth;
@@ -434,6 +428,17 @@
     </div>
     {% endif %}
 
+    {% if cv.skills.size > 0 %}
+    <!-- Languages -->
+    <div class="cv-section" id="languages">
+      <div class="cv-section-title">Languages Known</div>
+        <div class="cv-skill-line">
+          {{ cv.languages | join: ", " }}
+        </div>
+      </div>
+    </div>
+    {% endif %}
+
     {% if cv.publications.size > 0 %}
     <!-- Publications -->
     <div class="cv-section" id="publications">
@@ -486,48 +491,6 @@
     </div>
     {% endif %}
 
-    {% if cv.teaching.size > 0 %}
-    <!-- Teaching -->
-    <div class="cv-section" id="teaching">
-      <div class="cv-section-title">Teaching</div>
-      <ul class="cv-list">
-        {% for teaching in cv.teaching %}
-        <li class="cv-item">
-          <div class="cv-item-header">
-            <div class="cv-item-title">{{ teaching.course }}</div>
-            <div class="cv-item-date">{{ teaching.date | slice: 0, 4 }}</div>
-          </div>
-          <div class="cv-item-subtitle">{{ teaching.institution }}{% if teaching.role %} &middot; {{ teaching.role }}{% endif %}</div>
-          {% if teaching.description %}
-          <div class="cv-item-detail">{{ teaching.description }}</div>
-          {% endif %}
-        </li>
-        {% endfor %}
-      </ul>
-    </div>
-    {% endif %}
-
-    {% if cv.presentations.size > 0 %}
-    <!-- Presentations -->
-    <div class="cv-section" id="presentations">
-      <div class="cv-section-title">Presentations & Talks</div>
-      <ul class="cv-list">
-        {% for talk in cv.presentations %}
-        <li class="cv-item">
-          <div class="cv-item-header">
-            <div class="cv-item-title">{{ talk.name }}</div>
-            <div class="cv-item-date">{{ talk.date | slice: 0, 4 }}</div>
-          </div>
-          <div class="cv-item-subtitle">{{ talk.event }}{% if talk.location %} &middot; {{ talk.location }}{% endif %}</div>
-          {% if talk.description %}
-          <div class="cv-item-detail">{{ talk.description }}</div>
-          {% endif %}
-        </li>
-        {% endfor %}
-      </ul>
-    </div>
-    {% endif %}
-  </div>
 
   <!-- Custom Floating TOC Sidebar -->
   <aside class="cv-sidebar">
@@ -541,8 +504,6 @@
       {% if cv.skills.size > 0 %}<a href="#skills" class="cv-sidebar-link">Skills & Expertise</a>{% endif %}
       {% if cv.publications.size > 0 %}<a href="#publications" class="cv-sidebar-link">Publications</a>{% endif %}
       {% if cv.portfolio.size > 0 %}<a href="#projects" class="cv-sidebar-link">Projects</a>{% endif %}
-      {% if cv.teaching.size > 0 %}<a href="#teaching" class="cv-sidebar-link">Teaching</a>{% endif %}
-      {% if cv.presentations.size > 0 %}<a href="#presentations" class="cv-sidebar-link">Presentations</a>{% endif %}
     </nav>
   </aside>
 </div>

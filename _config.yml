@@ -8,7 +8,7 @@
 
 # Basic Site Settings
 locale                   : "en-US"
-site_theme               : "default" # The available themes options are "default", "air", "sunrise", "mint", "dirt" and "contrast"
+site_theme               : "contrast" # The available themes options are "default", "air", "sunrise", "mint", "dirt" and "contrast"
 title                    : "Somnath's Site"
 title_separator          : "-"
 name                     : &name "Somnath Bose"
@@ -192,6 +192,7 @@ exclude:
   - README
   - tmp
   - vendor
+  - templates
 keep_files:
   - .git
   - .svn
@@ -221,7 +222,7 @@ kramdown:
 
 # These settings control the types of collections used by the template
 collections:
-  portfolio:
+  projects:
     output: true
     permalink: /:collection/:path/
   publications:
@@ -233,17 +234,6 @@ collections:
 
 # These settings control how pages and collections are included in the site
 defaults:
-  # _posts
-  - scope:
-      path: ""
-      type: posts
-    values:
-      layout: single
-      author_profile: true
-      read_time: true
-      comments: true
-      share: true
-      related: true
   # _pages
   - scope:
       path: ""
@@ -251,15 +241,6 @@ defaults:
     values:
       layout: single
       author_profile: true
-  # _teaching
-  - scope:
-      path: ""
-      type: teaching
-    values:
-      layout: single
-      author_profile: true
-      share: true
-      comments: true
   # _publications
   - scope:
       path: ""
@@ -272,20 +253,13 @@ defaults:
   # _portfolio
   - scope:
       path: ""
-      type: portfolio
+      type: projects
     values:
       layout: single
       author_profile: true
       share: true
       comment: true
-  # _talks
-  - scope:
-      path: ""
-      type: talks
-    values:
-      layout: talk
-      author_profile: true
-      share: true
+  # _logs
   - scope:
       path: ""
       type: logs
@@ -293,9 +267,9 @@ defaults:
       layout: single
       author_profile: true
       read_time: true
-      comments: false
-      share: false
-      related: false
+      share: true
+      comment: true
+
 
 
 # Sass/SCSS

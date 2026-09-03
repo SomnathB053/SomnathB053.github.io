@@ -1,0 +1,69 @@
+/* Scope link colors to body content and lists only */
+.page__content a,
+.page__footer a,
+.archive a,
+.archive__item a,
+.taxonomy__index a {
+  color: #5c93bb !important;
+
+  &:visited {
+    color: #4a7a9f !important;
+  }
+
+  &:hover,
+  &:focus {
+    color: #8ec0e4 !important;
+  }
+}
+
+/* Explicitly protect the top masthead/navigation links */
+.masthead,
+.masthead a,
+.masthead__menu-item a {
+  color: inherit !important;
+}
+
+/* Keep page/article titles readable without forcing link blue */
+.archive__item-title a,
+.page__title a {
+  color: inherit !important;
+
+  &:hover {
+    color: #8ec0e4 !important;
+  }
+}
+
+
+
+/* Import clean academic serif fonts */
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..700;1,400..700&family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+
+/* Redefine theme font stacks */
+$serif-font: 'Lora', 'EB Garamond', Georgia, Cambria, 'Times New Roman', Times, serif;
+
+/* Override Jekyll / Minimal Mistakes Sass font variables */
+$global-font-family: $serif-font !default;
+$header-font-family: $serif-font !default;
+$caption-font-family: $serif-font !default;
+
+/* Force globally across all document elements, titles, and headers */
+html,
+body,
+h1, h2, h3, h4, h5, h6,
+p, li, a,
+.masthead,
+.masthead__menu-item,
+.page__title,
+.archive__item-title,
+.archive__item-excerpt,
+.sidebar,
+.author__name,
+.author__bio,
+.page__content {
+  font-family: $serif-font !important;
+}
+
+/* Optional: Keep code blocks in clean monospaced font */
+tt, code, kbd, samp, pre {
+  font-family: Monaco, Consolas, "Lucida Console", monospace !important;
+}

@@ -1,0 +1,73 @@
+---
+layout: archive
+permalink: /tags/
+title: " "
+author_profile: true
+---
+
+{% include base_path %}
+
+{% assign all_content = site.posts | concat: site.logs | concat: site.projects %}
+{% include group-by-array collection=all_content field="tags" %}
+
+<!-- Clickable Tag Selector -->
+<div class="taxonomy__index" style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2rem;">
+  <a href="#all" class="tag-filter-btn" data-tag="all" style="padding: 0.3rem 0.75rem; border-radius: 4px; border: 1px solid #ccc; text-decoration: none; font-weight: bold;">
+    Show All
+  </a>
+  {% for tag in group_names %}
+    <a href="#{{ tag | slugify }}" class="tag-filter-btn" data-tag="{{ tag | slugify }}" style="padding: 0.3rem 0.75rem; border-radius: 4px; border: 1px solid #ccc; text-decoration: none;">
+      {{ tag }} <span style="font-size: 0.8em; opacity: 0.7;">({{ group_items[forloop.index0].size }})</span>
+    </a>
+  {% endfor %}
+</div>
+<!-- Tag Content Sections -->
+{% for tag in group_names %}
+  {% assign posts = group_items[forloop.index0] %}
+  <div id="{{ tag | slugify }}" class="tag-group-section">
+    <h2 class="archive__subtitle" style="margin-top: 1rem; border: 2px dotted; padding: 5px; width: fit-content;" >{{ tag }}</h2>
+    <div class="list__item">
+      {% for post in posts %}
+        {% include archive-single.html %}
+      {% endfor %}
+    </div>
+  </div>
+{% endfor %}
+
+<!-- Dynamic Filter Script -->
+<script>
+  function applyTagFilter() {
+    var hash = window.location.hash.replace('#', '');
+    var sections = document.querySelectorAll('.tag-group-section');
+    var buttons = document.querySelectorAll('.tag-filter-btn');
+
+    if (!hash || hash === 'all') {
+      sections.forEach(function(sec) { sec.style.display = 'block'; });
+      buttons.forEach(function(btn) { btn.style.background = ''; btn.style.color = ''; });
+      var allBtn = document.querySelector('.tag-filter-btn[data-tag="all"]');
+      if (allBtn) { allBtn.style.background = 'lightgray'; allBtn.style.color = '#fff'; }
+      return;
+    }
+
+    sections.forEach(function(sec) {
+      if (sec.id === hash) {
+        sec.style.display = 'block';
+      } else {
+        sec.style.display = 'none';
+      }
+    });
+
+    buttons.forEach(function(btn) {
+      if (btn.getAttribute('data-tag') === hash) {
+        btn.style.background = 'lightgray';
+        btn.style.color = '';
+      } else {
+        btn.style.background = '';
+        btn.style.color = '';
+      }
+    });
+  }
+
+  window.addEventListener('DOMContentLoaded', applyTagFilter);
+  window.addEventListener('hashchange', applyTagFilter);
+</script>
